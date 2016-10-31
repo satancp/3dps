@@ -1,0 +1,98 @@
+<div ng-show="$ctrl.current_language=='English'">
+  <div class="container"> 
+    <div class="navbar-header"> 
+      <h1>Go2Fix</h1>
+    </div>
+  </div>
+  <div class="nav nav-tabs">
+    <li><a href="/main">Home</a></li>
+    <li uib-dropdown>
+      <a href id="dropdown" uib-dropdown-toggle>
+        Properties
+      </a>
+      <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="dropdown">
+        <li ng-repeat="choice in $ctrl.items1">
+          <a href="choice.link">{{choice.title}}</a>
+        </li>
+      </ul>
+    </li>
+    <li uib-dropdown>
+      <a href id="dropdown" uib-dropdown-toggle>
+        About Us
+      </a>
+      <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="dropdown">
+        <li ng-repeat="choice in $ctrl.items2">
+          <a href="choice.link">{{choice.title}}</a>
+        </li>
+      </ul>
+    </li>
+    <li ng-show="$ctrl.ipCookie('LoginState')==1" uib-dropdown>
+      <a href id="dropdown" uib-dropdown-toggle>
+        Your Account
+      </a>
+      <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="dropdown">
+        <li ng-repeat="choice in $ctrl.items3">
+          <a href="choice.link">{{choice.title}}</a>
+        </li>
+        <li ng-show="$ctrl.ipCookie('LoginState')" ng-click="$ctrl.logout()">
+          <a href="#">Logout</a>
+        </li>
+      </ul>
+    </li>
+    <li ng-show="!$ctrl.ipCookie('LoginState')" ng-click="$ctrl.login()">
+      <a href="#">Login</a>
+    </li>
+    <li ng-click="$ctrl.setlanguage('Chinese')">
+      <a href="#">Switch to Chinese site</a>
+    </li>
+  </div>
+</div>
+<div ng-show="$ctrl.current_language=='Chinese'">
+  <div class="container"> 
+    <div class="navbar-header"> 
+      <h1>Go2Fix 房产服务</h1>
+    </div>
+  </div>
+  <div class="nav nav-tabs">
+    <li><a href="/main4chinese">首页</a></li>
+    <li uib-dropdown>
+      <a href id="dropdown" uib-dropdown-toggle>
+        房屋资源
+      </a>
+      <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="dropdown">
+        <li ng-repeat="choice in $ctrl.items1_chinese">
+          <a href="choice.link">{{choice.title}}</a>
+        </li>
+      </ul>
+    </li>
+    <li uib-dropdown>
+      <a href id="dropdown" uib-dropdown-toggle>
+        关于我们
+      </a>
+      <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="dropdown">
+        <li ng-repeat="choice in $ctrl.items2_chinese">
+          <a href="choice.link">{{choice.title}}</a>
+        </li>
+      </ul>
+    </li>
+    <li ng-show="$ctrl.ipCookie('LoginState')==1" uib-dropdown>
+      <a href id="dropdown" uib-dropdown-toggle>
+        账号信息
+      </a>
+      <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="dropdown">
+        <li ng-repeat="choice in $ctrl.items3_chinese">
+          <a href="choice.link">{{choice.title}}</a>
+        </li>
+        <li ng-show="$ctrl.ipCookie('LoginState')" ng-click="$ctrl.logout4chinese()">
+          <a href="#">登出</a>
+        </li>
+      </ul>
+    </li>
+    <li ng-show="!$ctrl.ipCookie('LoginState')" ng-click="$ctrl.login4chinese()">
+      <a href="#">登陆</a>
+    </li>
+    <li ng-click="$ctrl.setlanguage('English')">
+      <a href="#">切换到英文网站</a>
+    </li>
+  </div>
+</div>

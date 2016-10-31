@@ -1,0 +1,77 @@
+<div class="modal-body">
+    <ul>
+    	<form name="form" ng-submit="register4chineseCtrl.handleRegBtnClick(rregister4chineseCtrl.egistrationForm)" role="form" novalidate>
+        <label>(*) 必须填写的区域</label>
+  			<div class="form-group">
+    			<label for="name">* 用户名</label>
+    			<input type="name" name="name" id="name" ng-model="register4chineseCtrl.registrationForm.username" required="required" class="form-control" min="3" max="10">
+  				<span ng-show="form.name.$error.required">请输入用户名!</span>
+  				<span ng-show="form.name.$error.length.min || form.name.$error.length.max">用户名无效! (长度需在3-10字符)</span>
+  			</div>
+  			<div class="form-group">
+    			<label for="email">* 邮箱地址</label>
+    			<input type="email" name="email" id="email" ng-model="register4chineseCtrl.registrationForm.email" required="required" class="form-control">
+  				<span ng-show="form.email.$error.email">邮箱地址无效!</span>
+  				<span ng-show="form.email.$error.required">请输入邮箱地址!</span>
+  				<span ng-show="register4chineseCtrl.err.code == 11000 || register4chineseCtrl.err.code == 11001"><font color="red">这个邮箱地址已被用来注册!</font></span>
+  			</div>
+        <div class="form-group">
+          <label for="email_confirmation">* 邮箱地址确认</label>
+          <input type="email" name="email_confirmation" id="email_confirmation" ng-model="register4chineseCtrl.registrationForm.email_confirmation" required="required" class="form-control" data-password-verify="register4chineseCtrl.registrationForm.email">
+          <span ng-show="form.email_confirmation.$error.passwordVerify">邮箱地址不匹配!</span>
+        </div>
+			  <div class="form-group">
+    			<label for="password">* 密码</label>
+    			<input type="password" name="password" id="password" ng-model="register4chineseCtrl.registrationForm.password" required="required" class="form-control" min="7">
+          <span ng-show="form.password.$error.required">请输入密码!</span>
+  				<span ng-show="form.password.$error.length.min">密码太短! (至少7位)</span>
+  			</div>
+			  <div class="form-group">
+    			<label for="password_confirmation">* 密码确认</label>
+    			<input type="password" name="password_confirmation" id="password_confirmation" ng-model="register4chineseCtrl.registrationForm.password_confirmation" required="required" class="form-control" data-password-verify="register4chineseCtrl.registrationForm.password">
+  				<span ng-show="form.password_confirmation.$error.passwordVerify">密码不匹配!</span>
+  			</div>
+        <div class="form-group">
+          <label for="name">* 全名</label>
+          <input type="fullname" name="fullname" id="fullname" ng-model="register4chineseCtrl.registrationForm.fullname" required="required" class="form-control" min="3" max="10">
+          <span ng-show="form.name.$error.required">请输入你的全名!</span>
+        </div>
+        <div class="form-group">
+          <label for="gender">* 性别</label>
+          <select type="gender" name="gender" id="gender" ng-model="register4chineseCtrl.registrationForm.gender" required="required" class="form-control">
+            <option value="">--选择性别--</option>
+            <option value="Male">男</option>
+            <option value="Female">女</option>
+            <option value="None">我不知道</option>
+          </select>
+          <span ng-show="form.gender.$error.required">请选择一个性别!</span>
+        </div>
+  			<div class="form-group">
+    			<label for="address1">* 当前地址1</label>
+    			<input type="address1" name="address1" id="address1" ng-model="register4chineseCtrl.registrationForm.address1" required="required" class="form-control">
+  				<span ng-show="form.address1.$error.required">请输入你的地址!</span>
+  			</div>
+        <div class="form-group">
+          <label for="address2">当前地址2</label>
+          <input type="address2" name="address" id="address" ng-model="register4chineseCtrl.registrationForm.address2" class="form-control">
+        </div>
+  			<div class="form-group">
+          <label for="city">* 城市</label>
+          <input type="city" name="city" id="city" ng-model="register4chineseCtrl.registrationForm.city" required="required" class="form-control">
+          <span ng-show="form.city.$error.required">请输入城市名!</span>
+        </div>
+        <div class="form-group">
+          <label for="zip">* 邮编号码</label>
+          <input type="zip" name="zip" id="zip" ng-model="register4chineseCtrl.registrationForm.zip" required="required" class="form-control">
+          <span ng-show="form.zip.$error.required">请输入邮编号码!</span>
+        </div>
+        <div class="form-group">
+          <label for="phone">* 电话号码</label>
+          <input type="phone" name="phone" id="phone" ng-model="register4chineseCtrl.registrationForm.phone" required="required" class="form-control">
+          <span ng-show="form.phone.$error.required">请输入电话号码!</span>
+        </div>
+			<button type="submit" class="btn btn-primary">注册</button>
+			<button class="btn btn-warning" type="button" ng-click="register4chineseCtrl.cancel()">取消</button>
+		</form>
+	</ul>
+</div>

@@ -1,0 +1,23 @@
+<div class="modal-body">
+    <ul>
+        <form ng-submit="loginCtrl.handleLoginBtnClick(loginCtrl.loginForm)" role="form" ng-init="loginCtrl.loginForm = {}">
+  			<div class="form-group">
+    			<label for="username">Username</label>
+    			<input type="username" name="username" id="username" ng-model="loginCtrl.loginForm.username" required="required" class="form-control">
+    			<span ng-show="loginCtrl.errm == 1"><font color="red">This user does not exist!</font></span>
+  			</div>
+  			<div class="form-group">
+    			<label for="password">Password</label>
+    			<input type="password" name="password" id="password" ng-model="loginCtrl.loginForm.password" required="required" class="form-control">
+    			<span ng-show="loginCtrl.errm == 2"><font color="red">The password is incorrect!</font></span>
+  			</div>
+  			<button type="submit" class="btn btn-primary">Sign in</button>
+  			<button class="btn btn-warning" type="button" ng-click="loginCtrl.cancel()">Cancel</button>
+		</form>
+    </ul>
+</div>
+<div class="modal-footer">
+	<ul>
+		<a href="#" ng-click="loginCtrl.cancel();loginCtrl.register()">Not Registered?</a>
+	</ul>
+</div>

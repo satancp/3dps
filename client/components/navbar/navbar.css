@@ -1,0 +1,44 @@
+#navigation {
+  width: 100%;
+  border-radius: 0;
+  margin: 0;
+  position: relative;
+  font-family: Times New Roman;
+  font-weight: bold;
+  font-size: 1.3em;
+}
+
+#background {
+  min-width: 100px;
+  width: 90%;
+  min-height: 70%;
+  height: 350px;
+  opacity: 1;
+  padding: 10px;
+}
+
+.nav-tabs {
+  position: relative;
+  left:  3%;
+  top:  20px;
+  border-bottom: none;
+  font-size: 1em;
+}
+
+.nav-tabs li a {
+  background-color: lightblue;
+  color: black;
+}
+
+.nav-tabs li a:hover {
+  color: white;
+  background-color: dimgray;
+}
+
+.nav-tabs li a:active {
+  background-color: dimgray;
+}
+
+.nav-tabs i {
+  font-weight: bold;
+}
