@@ -12,7 +12,7 @@
       </a>
       <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="dropdown">
         <li ng-repeat="choice in $ctrl.items1">
-          <a href="choice.link">{{choice.title}}</a>
+          <a ng-href={{choice.link}}>{{choice.title}}</a>
         </li>
       </ul>
     </li>
@@ -22,7 +22,7 @@
       </a>
       <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="dropdown">
         <li ng-repeat="choice in $ctrl.items2">
-          <a href="choice.link">{{choice.title}}</a>
+          <a ng-href={{choice.link}}>{{choice.title}}</a>
         </li>
       </ul>
     </li>
@@ -32,10 +32,23 @@
       </a>
       <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="dropdown">
         <li ng-repeat="choice in $ctrl.items3">
-          <a href="choice.link">{{choice.title}}</a>
+          <a ng-href={{choice.link}}>{{choice.title}}</a>
         </li>
         <li ng-show="$ctrl.ipCookie('LoginState')" ng-click="$ctrl.logout()">
           <a href="#">Logout</a>
+        </li>
+      </ul>
+    </li>
+    <li ng-show="$ctrl.ipCookie('LoginState')==1" uib-dropdown>
+      <a href id="dropdown" uib-dropdown-toggle>
+        Maintances
+      </a>
+      <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="dropdown">
+        <li ng-repeat="choice in $ctrl.items4">
+          <a ng-href={{choice.link}}>{{choice.title}}</a>
+        </li>
+        <li ng-show="$ctrl.ipCookie('LoginState')" ng-click="$ctrl.applym()">
+          <a href="#">Apply Maintance</a>
         </li>
       </ul>
     </li>
@@ -61,7 +74,7 @@
       </a>
       <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="dropdown">
         <li ng-repeat="choice in $ctrl.items1_chinese">
-          <a href="choice.link">{{choice.title}}</a>
+          <a ng-href={{choice.link}}>{{choice.title}}</a>
         </li>
       </ul>
     </li>
@@ -71,7 +84,7 @@
       </a>
       <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="dropdown">
         <li ng-repeat="choice in $ctrl.items2_chinese">
-          <a href="choice.link">{{choice.title}}</a>
+          <a ng-href={{choice.link}}>{{choice.title}}</a>
         </li>
       </ul>
     </li>
@@ -81,10 +94,23 @@
       </a>
       <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="dropdown">
         <li ng-repeat="choice in $ctrl.items3_chinese">
-          <a href="choice.link">{{choice.title}}</a>
+          <a ng-href={{choice.link}}>{{choice.title}}</a>
         </li>
         <li ng-show="$ctrl.ipCookie('LoginState')" ng-click="$ctrl.logout4chinese()">
           <a href="#">登出</a>
+        </li>
+      </ul>
+    </li>
+    <li ng-show="$ctrl.ipCookie('LoginState')==1" uib-dropdown>
+      <a href id="dropdown" uib-dropdown-toggle>
+        房屋报修
+      </a>
+      <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="dropdown">
+        <li ng-repeat="choice in $ctrl.items4_chinese">
+          <a ng-href={{choice.link}}>{{choice.title}}</a>
+        </li>
+        <li ng-show="$ctrl.ipCookie('LoginState')" ng-click="$ctrl.applym4chinese()">
+          <a href="#">提交报修</a>
         </li>
       </ul>
     </li>

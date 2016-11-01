@@ -108,7 +108,6 @@ export function show(req, res) {
 
 // Creates a new User in the  DB
 export function create(req, res) {
-  console.log("asd")
   return User.create(req.body)
     .then(respondsignup(res, 201))
     .catch(handleError(res));

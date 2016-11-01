@@ -1,0 +1,43 @@
+<div class="modal-body">
+    <ul>
+    	<form name="form" ng-submit="applymCtrl.handleAplBtnClick(applymCtrl.applyForm)" role="form" novalidate>
+        <label>(*) denotes a required field</label>
+  			<div class="form-group">
+    			<label for="address">* Address</label>
+    			<input type="address" name="address" id="address" ng-model="applymCtrl.applyForm.address" required="required" class="form-control">
+  				<span ng-show="form.address.$error.required">Please input the address!</span>
+  			</div>
+  			<div class="form-group">
+    			<label for="city">* City</label>
+    			<input type="city" name="city" id="city" ng-model="applymCtrl.applyForm.city" required="required" class="form-control">
+  				<span ng-show="form.city.$error.required">Please input the city!</span>
+  			</div>
+	        <div class="form-group">
+				<label for="zip">* Zip/Postal Code</label>
+				<input type="zip" name="zip" id="zip" ng-model="applymCtrl.applyForm.zip" required="required" class="form-control">
+				<span ng-show="form.zip.$error.required">Please input the postal code!</span>
+	        </div>
+	        <div class="form-group">
+				<label for="description4text">* Description(Text)</label>
+				<input type="description4text" name="description4text" id="description4text" ng-model="applymCtrl.applyForm.description4text" required="required" class="form-control">
+				<span ng-show="form.description4text.$error.required">Please input descriptions!</span>
+	        </div>
+	        <div class="form-group">
+				<label for="description4image">Description(Image)</label>
+				<input type="file" ngf-select ng-model="applymCtrl.applyForm.file" name="file" accept="image/*" ngf-max-size="5MB" required ngf-model-invalid="errorFile"/>
+      				<i ng-show="applymCtrl.applyForm.file.$error.required">*required</i><br>
+      				<i ng-show="applymCtrl.applyForm.file.$error.maxSize">File too large 
+          			{{errorFile.size / 1000000|number:1}}MB: max 5M</i>
+     	 			<img ng-show="applymCtrl.applyForm.file.$valid" ngf-thumbnail="applymCtrl.applyForm.file" class="thumb" style="width:10px height:10px"> <button ng-click="applymCtrl.applyForm.file = null" ng-show="applymCtrl.applyForm">Remove</button>
+      				<br>
+      				<span class="progress" ng-show="applymCtrl.applyForm.progress >= 0">
+        				<div style="width:{{applymCtrl.applyForm.progress}}%" ng-bind="applymCtrl.applyForm.progress + '%'"></div>
+      				</span>
+      				<span ng-show="applymCtrl.applyForm.file.result">Upload Successful</span>
+      				<span class="err" ng-show="applymCtrl.errorMsg">{{applymCtrl.errorMsg}}</span>
+	        </div>
+			<button type="submit" class="btn btn-primary">Apply</button>
+			<button class="btn btn-warning" type="button" ng-click="applymCtrl.cancel()">Cancel</button>
+		</form>
+	</ul>
+</div>

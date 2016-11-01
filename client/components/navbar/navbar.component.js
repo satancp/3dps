@@ -53,6 +53,12 @@ export class NavbarComponent {
       link: ''
     }
     ];
+    this.items4 = [
+    {
+      title: 'Check Maintance',
+      link: '/checkm'
+    }
+    ];
     this.items1_chinese = [
     {
       title: '兑换码',
@@ -73,6 +79,12 @@ export class NavbarComponent {
       link: ''
     }
     ];
+    this.items4_chinese = [
+    {
+      title: '查看报修',
+      link: 'checkm4chinese'
+    }
+    ];
   }
 
   login() {
@@ -89,6 +101,13 @@ export class NavbarComponent {
     this.$route.reload();
   }
 
+  applym() {
+    var modalInstance1 = this.$uibModal.open({
+      animation: this.animationsEnabled,
+      component: 'applym'
+    });
+  }
+
   login4chinese() {
     var modalInstance2 = this.$uibModal.open({
       animation: this.animationsEnabled,
@@ -101,6 +120,13 @@ export class NavbarComponent {
     this.ipCookie.remove('Login');
     this.$location.path('/main4chinese');
     this.$route.reload();
+  }
+
+  applym4chinese() {
+    var modalInstance1 = this.$uibModal.open({
+      animation: this.animationsEnabled,
+      component: 'applym4chinese'
+    });
   }
 
   setlanguage(target_language) {

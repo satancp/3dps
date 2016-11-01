@@ -35,11 +35,6 @@ export class RegisterComponent {
 
   }
 
-  gettosignin() {
-    this.$location.path('/login');
-    this.$route.reload();
-  }
-
   encryptData(data,key) {
     var CryptoJS = require("crypto-js");
     var encrypted = CryptoJS.AES.encrypt(data,key).toString();

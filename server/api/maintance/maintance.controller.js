@@ -56,6 +56,16 @@ function handleEntityNotFound(res) {
   };
 }
 
+function handleEntityNotFoundSpecial(res) {
+  return function(entity) {
+    if (!entity[0]) {
+      res.status(404).end();
+      return null;
+    }
+    return entity;
+  };
+}
+
 function handleError(res, statusCode) {
   statusCode = statusCode || 500;
   return function(err) {
@@ -82,6 +92,19 @@ export function show(req, res) {
 export function create(req, res) {
   return Maintance.create(req.body)
     .then(respondWithResult(res, 201))
+    .catch(handleError(res));
+}
+
+// Creates a new Maintance in the DB
+export function upload(req, res) {
+  var fs = require('fs');
+  fs.createReadStream(req.files.file.path).pipe(fs.createWriteStream('./client/assets/images/' + req.files.file.name));
+}
+
+export function checkM(req, res) {
+  return Maintance.find({publish_user:req.body.id}).populate('publish_user').exec()
+    .then(handleEntityNotFoundSpecial(res))
+    .then(respondWithResult(res))
     .catch(handleError(res));
 }
 

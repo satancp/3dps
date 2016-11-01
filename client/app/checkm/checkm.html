@@ -1,0 +1,27 @@
+<br><br>
+<table ng-table="checkmCtrl.customConfigParams" class="table table-condensed table-bordered">
+    <tr ng-repeat="m in checkmCtrl.all_m">
+        <td data-title="'Address'" sortable="'address'">
+            {{m.address}}
+        </td>
+        <td data-title="'City'" sortable="'city'">
+            {{m.city}}
+        </td>
+        <td data-title="'Zip'" sortable="'zip'">
+            {{m.zip}}
+        </td>
+        <td data-title="'Description'" sortable="'description'">
+            {{m.description4text}}
+        </td>
+        <td data-title="'State'" sortable="'state'">
+            {{m.state}}
+        </td>
+        <td data-title="'Date'" sortable="'date'">
+            {{checkmCtrl.generateDate(m.publish_date)}}
+        </td>
+        <td><button ng-click="checkmCtrl.checkdetails(m)" class="btn btn-info btn-sm" type="button">
+            View Details
+            </button>
+        </td>
+    </tr>
+</table>
